@@ -1,0 +1,27 @@
+In order to find which city suits our better-defined criteria we will use the following public available data from Eurostat https://ec.europa.eu/eurostat.
+Eurostat is the statistical office of the European Union situated in Luxembourg. Its mission is to provide high quality statistics for Europe, offering a whole range of important and interesting data that governments, businesses, the education sector, journalists and the public can use for their work and daily life.
+
+1. As our main target group is young people 25-35 years old, we’d like to rank the major cities in EU by purchasing power of this group. There is no such data at Eurostat site ready to be used, but we can easily get it using available data:
+-	file met_10r_3gdp.xls - Gross domestic product (GDP) at current market prices by metropolitan regions. These regions include countries and regions, so we have to filter the data.
+-	urb_cpop1.xls - Population aged 25 – 34 cities and greater cities 
+-	urb_cpop1 total.xls city population total
+
+We’d like to analyze data from 2019 (even better will be to have expected values for 2020) Last data currently available is for the period of 2013-2017, so we can extrapolate it for the next years till 2020, which we will use for our further analyses.
+We can estimate purchasing power of population 25-34 per each city by multiplying city GDP by Population aged 25 – 34 and dividing by city population total. Thus, we can sort all major cities in EU by decreasing of purchasing power. 
+ 
+2. Our second target group consist of international and national tourists. At Eurostat web page we can fin a lot of different data regarding tourism. Ideally, we’d like to see data about how many pairs of shoes tourists are buying from every city, or how much money they are spending there for shoes, but obviously it’s not possible to get such data. Probably the best metric for us will be quantity of nights spent by tourists at every city.
+-	Urb_ctour.xls - Total nights spent in tourist accommodation establishments per city
+
+3. Doing business – DTF.xlsx - An economy’s ease of doing business score is reflected on a scale from 0 to 100, where 0 represents the lowest and 100 represents the best performance.
+
+Now, we have three lists with EU major cities ordered by purchasing power, tourists and easiness of doing business in respective country. It seems reasonable to set weight coefficients of 0.7, 0.15 and 0.15 and find which city will get maximum score.
+
+
+4.	Now, after we’ve selected the city the next step is to find the best neighborhood. We are going to start utilizing the Foursquare API to explore the neighbourhoods and find which one will get maximum score according our criteria.
+
+4.1. we will make a list of neighborhoods ordered by number of shoe shops located there
+4.2. we will make 5 lists of neighborhoods ordered by number of venues preferred by young professional: trending café, fashion restaurants, art-galleries, university campuses, tourist attractions
+
+Now we have 6 lists of neighborhoods ordered by different criteria. It seems reasonable to set weight coefficients of 0.4 for list with shoe shops and 0.15 for others lists.
+The neighborhood with maximum score will be the best place for opening new shop of “TP collection” .
+
